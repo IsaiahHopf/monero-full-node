@@ -1,7 +1,7 @@
 # Usage: docker run --restart=always -v /var/data/blockchain-xmr:/root/.bitmonero -p 18080:18080 -p 18081:18081 -p 18089:18089 --name=monerod -td ihopf/monero-public-pruned-node
 FROM ubuntu:24.04 AS build
 
-ENV MONERO_VERSION=0.18.4.4 MONERO_SHA256=7fe45ee9aade429ccdcfcad93b905ba45da5d3b46d2dc8c6d5afc48bd9e7f108
+ENV MONERO_VERSION=0.18.4.6 MONERO_SHA256=60cfc32d39c6fe6c19b23513d02017fe9055d2e412ee4cbc30fa40ba811fe052
 
 RUN apt-get update && apt-get install -y curl bzip2
 
