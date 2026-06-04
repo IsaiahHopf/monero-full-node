@@ -1,7 +1,7 @@
 # Usage: docker run --restart=always -v /var/data/blockchain-xmr:/root/.bitmonero -p 18080:18080 -p 18081:18081 -p 18089:18089 --name=monerod -td ihopf/monero-public-pruned-node
 FROM ubuntu:24.04 AS build
 
-ENV MONERO_VERSION=0.18.4.6 MONERO_SHA256=60cfc32d39c6fe6c19b23513d02017fe9055d2e412ee4cbc30fa40ba811fe052
+ENV MONERO_VERSION=0.18.5.0 MONERO_SHA256=166ad93036f95f5abeba24c8670061be022c9238dba2e6a7587611a1d759e294
 
 RUN apt-get update && apt-get install -y curl bzip2
 
@@ -29,4 +29,4 @@ VOLUME /home/monero/.bitmonero
 EXPOSE 18080 18081 18089
 
 ENTRYPOINT ["./monerod"]
-CMD ["--enforce-dns-checkpointing", "--enable-dns-blocklist", "--out-peers=32", "--in-peers=32", "--prune-blockchain", "--non-interactive", "--no-zmq", "--no-igd", "--db-sync-mode=safe:sync", "--rpc-restricted-bind-port=18089", "--rpc-bind-ip=0.0.0.0", "--confirm-external-bind", "--public-node", "--rpc-ssl=enabled", "--ban-list=/home/monero/.bitmonero/ban_list.txt"]
+CMD ["--enforce-dns-checkpointing", "--enable-dns-blocklist", "--out-peers=32", "--prune-blockchain", "--non-interactive", "--no-zmq", "--no-igd", "--db-sync-mode=safe:sync", "--rpc-restricted-bind-port=18089", "--rpc-bind-ip=0.0.0.0", "--confirm-external-bind", "--public-node", "--rpc-ssl=enabled", "--ban-list=/home/monero/.bitmonero/ban_list.txt"]
